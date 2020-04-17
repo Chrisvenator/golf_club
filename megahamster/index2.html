@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/Viewhelper">
+<head>
+    <meta charset="UTF-8">
+    <title>Megahamster</title>
+
+    <style>
+        body {
+            /*text-align: center;*/
+            background-image: url('../../wallpaper3.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: #3b6d95;
+            background-size: 100%;
+            color: white;
+            text-shadow: 0px 0px 10px black;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <f:for each="{room}" as="roomentry">
+        <li>
+            {roomentry.bezeichnung}:
+            <ul>
+                <li>
+                    Preis: {roomentry.preis}
+                </li>
+                <li>
+                    Größe {roomentry.grundflaeche} cm
+                </li>
+                <li>
+                    Zusatzausstattung: {roomentry.zusatzausstattung}
+                </li>
+            </ul>
+        </li>
+    </f:for>
+</ul>
+</body>
+</html>

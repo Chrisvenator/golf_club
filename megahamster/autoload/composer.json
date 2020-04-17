@@ -1,0 +1,6 @@
+{
+    "name": "vendor/autoload",
+    "description": "autoload",
+    "type": "project",
+    "require": {}
+}

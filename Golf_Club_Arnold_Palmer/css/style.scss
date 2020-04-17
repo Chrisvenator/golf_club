@@ -1,0 +1,36 @@
+body {
+  text-align: center;
+  background-image: url('./backgrounds/wallpaper1.jpg');
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-color: #ddffdd;
+  background-size: 100%;
+  color: #00bf00;
+  text-shadow: 0px 0px 10px black;
+  font-size: 40px;
+}
+
+select {
+  background-color: transparent;
+  color: white;
+  text-shadow: 0px 0px 10px black;
+  border: 4px dotted white;
+  font-size: 40px;
+}
+
+option {
+  /*background-color: transparent !important;*/
+  /*border: 1px solid #e4e4e4;*/
+  color: #000;
+  font-size: 40px;
+  border: 4px dotted white;
+}
+
+input {
+  color: white;
+  text-shadow: 0px 0px 10px black;
+  background-color: transparent;
+  border: 5px double white;
+  border-radius: 10px;
+  font-size: 40px;
+}

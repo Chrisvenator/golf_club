@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JS to PHP</title>
+    <script type="text/javascript" src="jquerry.js"></script>
+</head>
+<body>
+<form>
+    <input type="text" id="name" placeholder="Enter your name..."><br>
+    <input type="text" id="age" placeholder="Enter your age..."><br>
+    <input type="button" value="Submit" onclick="post()">
+</form>
+
+<div id="result"></div>
+
+<script type="text/javascript">
+
+    function post() {
+        var name = $('#name').val();
+        var age = $('#age').val();
+
+        $.post('validate.php', {postname: name, postage: age}, function (data) {
+            $('#result').html(data);
+        });
+    }
+
+
+</script>
+</body>
+</html>

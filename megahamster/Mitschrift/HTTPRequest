@@ -1,0 +1,12 @@
+HTTP/1.1 200 ok
+... -->Location: URL (bsp.: http://www.htl.rennweg.at -> https://htl.rennweg.at
+LEERZEILE
+[Body]
+
+1xx <- werden ausgegeben solange der Request noch läuft (Sieht man NIE)
+2xx <- alles gut gegangen
+3xx <- gäbe etwas aber es ist nicht mehr da (folgt neuer Location)
+4xx <- Client Fehler (bsp.: 404 not Found, ...)
+5xx <- Server Fehler (bsp.: 503 Server ist überlastet)
+
+//HTTP Request ohe Browser: Fiddler 4

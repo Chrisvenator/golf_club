@@ -1,0 +1,21 @@
+{
+  "name": "htl3r/orm",
+  "description": "orm test",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Christopher Scherling",
+      "email": "christopher.scherling@gmail.com"
+    }
+  ],
+  "require": {
+    "doctrine/orm": "^2.7",
+    "symfony/yaml": "2.*"
+  },
+  "autoload": {
+    "psr-0": {
+      "": "src/"
+    }
+  }
+}

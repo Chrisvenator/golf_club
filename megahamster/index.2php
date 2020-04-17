@@ -1,0 +1,315 @@
+<?php
+
+interface Raum {
+
+    /**
+     * @return float
+     */
+    public function getPreis();
+
+    /**
+     * @param int $preis
+     */
+    public function setPreis($preis);
+
+    /**
+     * @return string
+     */
+    public function getBezeichnung();
+
+    /**
+     * @param string $bezeichnung
+     */
+    public function setBezeichnung($bezeichnung);
+
+    /**
+     * @param $groesse
+     * @return mixed
+     */
+
+//    public function berechneFlaeche();
+
+    /**
+     * @return mixed
+     */
+
+    public function getGrundflaeche();
+
+    /**
+     * @param $arr
+     * @return mixed
+     */
+    public function setZusatzausstattung($arr);
+
+    /**
+     * @return mixed
+     */
+    public function getZusatzausstattung();
+
+    /**
+     * @return mixed
+     */
+    public function __toString();
+
+}
+
+
+class Flat implements Raum {
+    protected $preis = 0;
+    protected $bezeichnung = "";
+    protected $greosse = 0;
+    protected $zusatzausstattung = [];
+
+
+    function __construct(string $bezeichnung, float $preis_in_EUR, float $groesse_in_cm2, array $arr) {
+        $this->preis = $preis_in_EUR;
+        $this->bezeichnung = $bezeichnung;
+        $this->greosse = $groesse_in_cm2;
+        $this->zusatzausstattung = $arr;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPreis(): float {
+        return $this->preis;
+    }
+
+    /**
+     * @param int $preis
+     */
+    public function setPreis($preis) {
+        $this->preis = $preis;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBezeichnung(): string {
+        return $this->bezeichnung;
+    }
+
+    /**
+     * @param string $bezeichnung
+     */
+    public function setBezeichnung($bezeichnung) {
+        $this->bezeichnung = $bezeichnung;
+    }
+
+
+    /**
+     * @param $groesse
+     * @return mixed
+     */
+    public function berechneFlaeche($laenge, $breite, $hoehe) {
+        $this->greosse = $laenge * $breite * $hoehe;
+        return $laenge * $breite * $hoehe;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getGrundflaeche() {
+        return $this->greosse;
+    }
+
+    /**
+     * @param $arr
+     * @return mixed
+     */
+    public function setZusatzausstattung($arr) {
+        $this->zusatzausstattung = $arr;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getZusatzausstattung() {
+        return $this->zusatzausstattung;
+    }
+
+    public function __toString() {
+        return $this->getBezeichnung() . ":  " . $this->getPreis() . ',' . $this->getGrundflaeche() . ', ' . $this . $this->getZusatzausstattung();
+    }
+
+}
+
+
+class Room implements Raum {
+    protected $preis = 0;
+    protected $bezeichnung = "";
+    protected $greosse = 0;
+    protected $zusatzausstattung = [];
+
+
+    function __construct(string $bezeichnung, float $preis_in_EUR, float $groesse_in_cm2, array $arr) {
+        $this->preis = $preis_in_EUR;
+        $this->bezeichnung = $bezeichnung;
+        $this->greosse = $groesse_in_cm2;
+        $this->zusatzausstattung = $arr;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPreis(): float {
+        return $this->preis;
+    }
+
+    /**
+     * @param int $preis
+     */
+    public function setPreis($preis) {
+        $this->preis = $preis;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBezeichnung(): string {
+        return $this->bezeichnung;
+    }
+
+    /**
+     * @param string $bezeichnung
+     */
+    public function setBezeichnung($bezeichnung) {
+        $this->bezeichnung = $bezeichnung;
+    }
+
+
+    /**
+     * @param $groesse
+     * @return mixed
+     */
+    public function berechneFlaeche($laenge, $breite, $hoehe) {
+        $this->greosse = $laenge * $breite * $hoehe;
+        return $laenge * $breite * $hoehe;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getGrundflaeche() {
+        return $this->greosse;
+    }
+
+    /**
+     * @param $arr
+     * @return mixed
+     */
+    public function setZusatzausstattung($arr) {
+        $this->zusatzausstattung = $arr;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getZusatzausstattung() {
+        return $this->zusatzausstattung;
+    }
+
+    public function __toString() {
+        return $this->getBezeichnung() . ":  " . $this->getPreis() . ',' . $this->getGrundflaeche() . ', ' . $this . $this->getZusatzausstattung();
+    }
+
+}
+
+
+class Pit implements Raum {
+    protected $preis = 0;
+    protected $bezeichnung = "";
+    protected $greosse = 0;
+    protected $zusatzausstattung = [];
+
+
+    function __construct(string $bezeichnung, float $preis_in_EUR, float $groesse_in_cm2, array $arr) {
+        $this->preis = $preis_in_EUR;
+        $this->bezeichnung = $bezeichnung;
+        $this->greosse = $groesse_in_cm2;
+        $this->zusatzausstattung = $arr;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPreis(): float {
+        return $this->preis;
+    }
+
+    /**
+     * @param int $preis
+     */
+    public function setPreis($preis) {
+        $this->preis = $preis;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBezeichnung(): string {
+        return $this->bezeichnung;
+    }
+
+    /**
+     * @param string $bezeichnung
+     */
+    public function setBezeichnung($bezeichnung) {
+        $this->bezeichnung = $bezeichnung;
+    }
+
+
+    /**
+     * @param $groesse
+     * @return mixed
+     */
+    public function berechneFlaeche($seitenLaenge) {
+        $tmp = 2 * (1 + sqrt(2)) * $seitenLaenge * $seitenLaenge;
+        $this->greosse = $tmp;
+        return $tmp;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getGrundflaeche() {
+        return $this->greosse;
+    }
+
+    /**
+     * @param $arr
+     * @return mixed
+     */
+    public function setZusatzausstattung($arr) {
+        $this->zusatzausstattung = $arr;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getZusatzausstattung() {
+        return $this->zusatzausstattung;
+    }
+
+    public function __toString() {
+        return $this->getBezeichnung() . ":  " . $this->getPreis() . ',' . $this->getGrundflaeche() . ', ' . $this . $this->getZusatzausstattung();
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scherling</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        table, th, td {
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+
+        #tabelle:hover {
+            /*color: #00bf00;*/
+            background-image: url('./pics/gottesbild.jpg');
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-size: cover;
+        }
+
+        #zurückDiv {
+            display: flex;
+        }
+
+        #zurück {
+            justify-content: flex-end;
+        }
+
+        .gottesbild {
+            text-align: center;
+        }
+
+        th, td {
+            padding: 5px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+    <!--    CONTENT NOT YET LOADED-->
+</div>
+<button type="button" id="button" class="btn btn-outline-dark">ändern</button>
+<button type="button" id="button2" class="btn btn-outline-dark">ändern</button>
+<button type="button" id="farbe" class="btn btn-outline-dark">farbe ändern</button>
+<button type="button" id="gottesbild" class="gottesbild btn btn-success">Du willst gott sehen?</button>
+<div class="zurückDiv">
+    <button type="button" id="zurück" class="zurück btn btn-danger">zurück</button>
+</div>
+<table id="tabelle" class="tabelle">
+    <div id="header1">
+        <th>preis</th>
+        <th>name</th>
+        <th>Größe</th>
+        <th>Zusatzausstattung</th>
+    </div>
+    <tbody id="list">
+
+    </tbody>
+</table>
+
+<table id="tabelle2">
+    <tbody id="list2">
+
+    </tbody>
+</table>
+<p id="demo"></p>
+<div id="json"></div>
+<script type="text/javascript">
+    document.getElementById("tabelle2").style.display = "none";
+    document.getElementById("button2").style.display = "none";
+    document.getElementById("gottesbild").style.display = "none";
+    document.getElementById("zurück").style.display = "none";
+
+    document.getElementById("zurück").addEventListener("click", function () {
+        window.location.replace(window.location.pathname + window.location.search + window.location.hash);
+        window.location.reload(ftrue); //
+    });
+
+    document.getElementById("button").addEventListener("click", function () { //Andere Liste ändern
+        document.getElementById("tabelle").style.display = "none";
+        document.getElementById("tabelle2").style.display = "block";
+        document.getElementById("button").style.display = "none";
+        document.getElementById("button2").style.display = "block";
+        document.getElementById("farbe").style.display = "none"; //2.Button entfernen
+    });
+
+    document.getElementById("gottesbild").addEventListener("click", function () {
+        document.getElementById("list").style.backgroundImage = "url('./pics/gottesbild.jpg')";
+        document.getElementById("header1").style.backgroundImage = "url('./pics/gottesbild.jpg')";
+        document.getElementById("list").style.backgroundPosition = "center"; /* Center the image */
+        document.getElementById("list").style.backgroundRepeat = "no-repeat"; /* Do not repeat the image */
+        document.getElementById("list").style.backgroundSize = "cover";
+        document.getElementById("list").style.color = "#000000";
+        document.getElementById("gottesbild").style.display = "none"; // Button deaktivieren
+        document.getElementById("zurück").style.display = "block"; // Button deaktivieren
+
+    });
+    
+    document.getElementById("button2").addEventListener("click", function () { //Liste zuück ändern (mit Refresh)
+        document.getElementById("tabelle2").style.display = "none";
+        document.getElementById("tabelle").style.display = "block";
+        document.getElementById("button2").style.display = "none";
+        document.getElementById("button").style.display = "block";
+        document.getElementById("farbe").style.display = "block"; //2.Button entfernen
+        window.location.replace(window.location.pathname + window.location.search + window.location.hash);
+        window.location.reload(ftrue); //
+    });
+
+    document.getElementById("farbe").addEventListener("click", function () { //Style umändern
+        document.getElementById("tabelle").style.backgroundColor = "#B31F08";//hintergrundfarbe Header
+        document.getElementById("list").style.backgroundColor = "#00B361"; // Hintergrundfarbe content
+        document.getElementById("tabelle").style.color = "#ffffff"; //Schrift Farbe von header
+        document.getElementById("list").style.color = "#eeeeee"; // Schriftfarbe Content
+        document.body.style.backgroundImage = "url('./pics/Gott.jpg')";
+        document.body.style.textAlign = "center";
+        document.getElementById("tabelle").align = "center"; //mittig ausrichten
+        document.getElementById("button").style.display = "none"; //1.Button entfernen
+        document.getElementById("button2").style.display = "none"; //1.Button entfernen
+        document.getElementById("farbe").style.display = "none"; //2.Button entfernen
+        document.getElementById("gottesbild").style.display = "block";
+
+    });
+
+    fetch('http://localhost/megahamster/index.php?format=json')
+        .then((result) => {
+            return result.json();
+        })
+        .then((json) => {
+
+            function appendRow(p1) { //jE = JSONElemente
+                var name = p1;
+                // console.log(name);
+
+                var tr = document.createElement("td");
+                var td = document.createTextNode(name['preis']);
+                // var tr2 = document.createElement("th");
+                tr.appendChild(td);
+                document.getElementById("list").appendChild(tr);
+
+                var tr = document.createElement("td");
+                var td = document.createTextNode(name['bezeichnung']);
+                tr.appendChild(td);
+                document.getElementById("list").appendChild(tr);
+
+                var tr = document.createElement("td");
+                var td = document.createTextNode(name['greosse']);
+                tr.appendChild(td);
+                document.getElementById("list").appendChild(tr);
+
+                var tr = document.createElement("td");
+                var td = document.createTextNode(name['zusatzausstattung']);
+                tr.appendChild(td);
+                document.getElementById("list").appendChild(tr);
+
+                var tr = document.createElement("tr");
+                var td = document.createTextNode(" ");
+                tr.appendChild(td);
+                document.getElementById("list").appendChild(tr);
+
+
+                //1.Tabelle
+                //////////////////////////////////////////////////////
+                //2.Tabelle
+
+
+                var name = p1;
+                // console.log(name);
+
+                var tr = document.createElement("li");
+                var td = document.createTextNode(name['preis']);
+                // var tr2 = document.createElement("th");
+                tr.appendChild(td);
+                document.getElementById("list2").appendChild(tr);
+
+                var tr = document.createElement("li");
+                var td = document.createTextNode(name['bezeichnung']);
+                tr.appendChild(td);
+                document.getElementById("list2").appendChild(tr);
+
+                var tr = document.createElement("li");
+                var td = document.createTextNode(name['greosse']);
+                tr.appendChild(td);
+                document.getElementById("list2").appendChild(tr);
+
+                var tr = document.createElement("li");
+                var td = document.createTextNode(name['zusatzausstattung']);
+                tr.appendChild(td);
+                document.getElementById("list2").appendChild(tr);
+
+                var tr = document.createElement("br");
+                var td = document.createTextNode(" ");
+                tr.appendChild(td);
+                document.getElementById("list2").appendChild(tr);
+
+            }
+
+            // console.log(json);
+            appendRow(json ['The Pit']);
+            appendRow(json ['The Flat']);
+            appendRow(json ['The Living Room']);
+
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+
+</script>
+</body>
+</html>

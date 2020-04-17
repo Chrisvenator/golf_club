@@ -1,0 +1,13 @@
+{
+  "name": "htl3r/dactrine",
+  "description": "\u001b[A\u001b[B",
+  "type": "project",
+  "require": {
+    "doctrine/dbal": "^2.10"
+  },
+  "autoload": {
+    "psr-4": {
+      "htl3r\\dactrine\\": "src"
+    }
+  }
+}

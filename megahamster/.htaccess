@@ -1,0 +1,9 @@
+RewriteEngine on
+
+
+
+RewriteRule ^(index)/(json) index.php?format=json
+RewriteRule index index.php [NC]
+#RewriteRule ^([a-zA-z0-9]+) 404.html
+
+#RewriteRule ^([a-zA-z]+)/([0-9]+) results.php?page=$1&pageid=$2

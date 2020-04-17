@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Client requesting JSON DATA</title>
+</head>
+<body>
+<div id="content">
+    CONTENT NOT YET LOADED
+</div>
+<table>
+    <tr id="list">
+        <td></td>
+    </tr>
+</table>
+<p id="demo"></p>
+<div id="json"></div>
+<script type="text/javascript">
+    fetch('http://localhost/megahamster/json/jsonencodeexample-master/index.php?format=json')
+        .then((result) => {
+            return result.json();
+        })
+        .then((json) => {
+            console.log(json);
+            // document.getElementById("json").innerText = json ['name'];
+
+
+            function appendRow(name) { //jE = JSONElemente
+                    var tr = document.createElement("tr");
+                    var td = document.createTextNode(name);
+                    tr.appendChild(td);
+                    document.getElementById("list").appendChild(tr);
+                    console.log(name);
+            }
+
+            appendRow(json ['name']);
+            appendRow(json ['name']);
+
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+
+</script>
+</body>
+</html>

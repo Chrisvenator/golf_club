@@ -1,0 +1,15 @@
+{
+    "name": "htl3r/megahamster",
+    "description": "megahamster templating",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "christopher scherling",
+            "email": "c.s@gx.at"
+        }
+    ],
+    "require": {
+        "typo3fluid/fluid": "^2.6"
+    }
+}
