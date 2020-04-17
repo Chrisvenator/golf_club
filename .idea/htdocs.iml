@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/HTL3r.QRCodes/vendor/bacon/bacon-qr-code" />
+      <excludeFolder url="file://$MODULE_DIR$/HTL3r.QRCodes/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/HTL3r.QRCodes/vendor/dasprid/enum" />
+      <excludeFolder url="file://$MODULE_DIR$/HTL3r.QRCodes/vendor/endroid/installer" />
+      <excludeFolder url="file://$MODULE_DIR$/HTL3r.QRCodes/vendor/endroid/qr-code" />
+      <excludeFolder url="file://$MODULE_DIR$/HTL3r.QRCodes/vendor/khanamiryan/qrcode-detector-decoder" />
+      <excludeFolder url="file://$MODULE_DIR$/HTL3r.QRCodes/vendor/myclabs/php-enum" />
+      <excludeFolder url="file://$MODULE_DIR$/HTL3r.QRCodes/vendor/symfony/http-foundation" />
+      <excludeFolder url="file://$MODULE_DIR$/HTL3r.QRCodes/vendor/symfony/inflector" />
+      <excludeFolder url="file://$MODULE_DIR$/HTL3r.QRCodes/vendor/symfony/mime" />
+      <excludeFolder url="file://$MODULE_DIR$/HTL3r.QRCodes/vendor/symfony/options-resolver" />
+      <excludeFolder url="file://$MODULE_DIR$/HTL3r.QRCodes/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/HTL3r.QRCodes/vendor/symfony/polyfill-intl-idn" />
+      <excludeFolder url="file://$MODULE_DIR$/HTL3r.QRCodes/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/HTL3r.QRCodes/vendor/symfony/polyfill-php72" />
+      <excludeFolder url="file://$MODULE_DIR$/HTL3r.QRCodes/vendor/symfony/property-access" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="jquery-1.10.2" level="application" />
+  </component>
+</module>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://C:/xampp/htdocs/HTL3r.QRCodes">
+      <excludeFolder url="file://C:/xampp/htdocs/HTL3r.QRCodes/vendor/bacon/bacon-qr-code" />
+      <excludeFolder url="file://C:/xampp/htdocs/HTL3r.QRCodes/vendor/composer" />
+      <excludeFolder url="file://C:/xampp/htdocs/HTL3r.QRCodes/vendor/dasprid/enum" />
+      <excludeFolder url="file://C:/xampp/htdocs/HTL3r.QRCodes/vendor/endroid/installer" />
+      <excludeFolder url="file://C:/xampp/htdocs/HTL3r.QRCodes/vendor/endroid/qr-code" />
+      <excludeFolder url="file://C:/xampp/htdocs/HTL3r.QRCodes/vendor/khanamiryan/qrcode-detector-decoder" />
+      <excludeFolder url="file://C:/xampp/htdocs/HTL3r.QRCodes/vendor/myclabs/php-enum" />
+      <excludeFolder url="file://C:/xampp/htdocs/HTL3r.QRCodes/vendor/symfony/http-foundation" />
+      <excludeFolder url="file://C:/xampp/htdocs/HTL3r.QRCodes/vendor/symfony/inflector" />
+      <excludeFolder url="file://C:/xampp/htdocs/HTL3r.QRCodes/vendor/symfony/mime" />
+      <excludeFolder url="file://C:/xampp/htdocs/HTL3r.QRCodes/vendor/symfony/options-resolver" />
+      <excludeFolder url="file://C:/xampp/htdocs/HTL3r.QRCodes/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://C:/xampp/htdocs/HTL3r.QRCodes/vendor/symfony/polyfill-intl-idn" />
+      <excludeFolder url="file://C:/xampp/htdocs/HTL3r.QRCodes/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://C:/xampp/htdocs/HTL3r.QRCodes/vendor/symfony/polyfill-php72" />
+      <excludeFolder url="file://C:/xampp/htdocs/HTL3r.QRCodes/vendor/symfony/property-access" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

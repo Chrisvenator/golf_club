@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/HTL3r.QRCodes/vendor/endroid/installer" />
+      <path value="$PROJECT_DIR$/HTL3r.QRCodes/vendor/endroid/qr-code" />
+      <path value="$PROJECT_DIR$/HTL3r.QRCodes/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/HTL3r.QRCodes/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/HTL3r.QRCodes/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/HTL3r.QRCodes/vendor/dasprid/enum" />
+      <path value="$PROJECT_DIR$/HTL3r.QRCodes/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/HTL3r.QRCodes/vendor/symfony/inflector" />
+      <path value="$PROJECT_DIR$/HTL3r.QRCodes/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/HTL3r.QRCodes/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/HTL3r.QRCodes/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/HTL3r.QRCodes/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/HTL3r.QRCodes/vendor/composer" />
+      <path value="$PROJECT_DIR$/HTL3r.QRCodes/vendor/khanamiryan/qrcode-detector-decoder" />
+      <path value="$PROJECT_DIR$/HTL3r.QRCodes/vendor/bacon/bacon-qr-code" />
+      <path value="$PROJECT_DIR$/HTL3r.QRCodes/vendor/myclabs/php-enum" />
+      <path value="" />
+    </include_path>
+  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.4" />
+</project>
