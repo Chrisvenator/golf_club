@@ -41,11 +41,11 @@
             <!--Make sure the form has the autocomplete function switched off:-->
             <form class="login100-form validate-form" autocomplete="off" method="post">
 					<span class="login100-form-title p-b-59">
-						Create Golffeld
+						Create Golf Course
 					</span>
 
                 <div class="wrap-input100" data-validate="Name is required">
-                    <span class="label-input100">Golfplatz</span>
+                    <span class="label-input100">Golf Course</span>
                     <div class="autocomplete" style="width:300px;">
                         <input class="input100" id="myInput" name="platz" type="text" placeholder="Name">
                     </div>
@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Name is required">
-                    <span class="label-input100">Lochnummer</span>
+                    <span class="label-input100">Hole Number</span>
                     <input class="input100" type="text" name="lochnummer" placeholder="Lochnummer..." id="lochnummer">
                     <span class="focus-input100"></span>
                 </div>

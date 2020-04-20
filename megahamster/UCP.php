@@ -1,6 +1,7 @@
 <?php
 require_once "./doctrine/ORM/bootstrap.php";
 if (isset($_SESSION['user'])) {
+    echo $_SESSION['user'];
     $dql = "SELECT u FROM user u WHERE b.user = " . $_SESSION['user'];
 
     $query = $entityManager->createQuery($dql);

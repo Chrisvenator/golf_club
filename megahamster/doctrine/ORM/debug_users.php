@@ -14,6 +14,8 @@ foreach ($users as $user) {
     echo "; Vorname:" . $user->getVorName();
     echo "; Nachname: " . $user->getNachName();
     echo "; Passwort: " . $user->getPassword();
+    echo "; addresse:: " . $user->getAddresse();
+    echo "; gebDate:: " . $user->getGeburtsdatum();
     echo "\n";
     echo "\n";
 }

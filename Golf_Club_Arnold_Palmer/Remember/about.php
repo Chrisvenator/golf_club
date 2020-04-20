@@ -93,7 +93,7 @@ session_start();
                                     <li class="dropdown">
                                         <a href="#">Pages <i class="icon-angle-down"></i></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="about.html">About us</a></li>
+                                            <li><a href="about.php">About us</a></li>
                                             <!--<li><a href="pricingbox.html">Pricing boxes</a></li>-->
                                             <li><a href="404.php">404</a></li>
                                         </ul>

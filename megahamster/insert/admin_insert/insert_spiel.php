@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Create Golffeld</title>
+    <title>Create Game</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -31,7 +31,9 @@
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <!--===============================================================================================-->
 </head>
-<body style="background-color: #999999;"> <?php require_once "../../doctrine/orm/bootstrap.php"; ?>
+<body style="background-color: #999999;">
+<?php require_once "../../doctrine/orm/bootstrap.php";
+session_start(); ?>
 <div id="result"></div>
 <div class="limiter">
     <div class="container-login100">
@@ -62,7 +64,7 @@
 
                 <div class="wrap-input100 validate-input" data-validate="Name is required">
                     <span class="label-input100">Hits</span>
-                    <input class="input100" type="text" name="parScore" placeholder="PAR-Score..." id="parScore">
+                    <input class="input100" id="hits" type="text" name="score" placeholder="PAR-Score...">
                     <span class="focus-input100"></span>
                 </div>
 
@@ -95,14 +97,19 @@
             tmp = inp;
         }
 
-        function post_old() {
-            var name = $('#name').val();
-            var lochnummer = $('#lochnummer').val();
-            var parScore = $('#parScore').val();
-            var platz = tmp;
 
-            $.post('create_golffeld.php', {
-                postname: name, postlochnummer: lochnummer, postparScore: parScore, postplatz: platz
+        function post() {
+            var platz = $('#golfplatz_input').val();
+            var feld = $('#golffeld_input').val();
+            var score = $('#hits').val();
+            var user = "<?php echo $_SESSION['user'] ?>";
+
+            // console.log(platz);
+            // console.log(feld);
+            // console.log(score);
+
+            $.post('create_spiel.php', {
+                postplatz: platz, postfeld: feld, postscore: score, postUser: user
             }, function (data) {
                 $('#result').html(data);
             });
@@ -135,57 +142,59 @@
         // var countries = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Anguilla", "Antigua &amp; Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia &amp; Herzegovina", "Botswana", "Brazil", "British Virgin Islands", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands", "Central Arfrican Republic", "Chad", "Chile", "China", "Colombia", "Congo", "Cook Islands", "Costa Rica", "Cote D Ivoire", "Croatia", "Cuba", "Curacao", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands", "Faroe Islands", "Fiji", "Finland", "France", "French Polynesia", "French West Indies", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guam", "Guatemala", "Guernsey", "Guinea", "Guinea Bissau", "Guyana", "Haiti", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Isle of Man", "Israel", "Italy", "Jamaica", "Japan", "Jersey", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauro", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Korea", "Norway", "Oman", "Pakistan", "Palau", "Palestine", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russia", "Rwanda", "Saint Pierre &amp; Miquelon", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Korea", "South Sudan", "Spain", "Sri Lanka", "St Kitts &amp; Nevis", "St Lucia", "St Vincent", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor L'Este", "Togo", "Tonga", "Trinidad &amp; Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks &amp; Caicos", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States of America", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Virgin Islands (US)", "Yemen", "Zambia", "Zimbabwe"];
         <?php
         //Golfpaltz
-        //        $dql = "SELECT g FROM golfplatz g";
-        //
-        //        $query = $entityManager->createQuery($dql);
-        //        $query->setMaxResults(30);
-        //        $stats = $query->getResult();
-        //        $erg_platz = array();
-        //
-        //        foreach ($stats as $stat) {
-        //            if ($stat->getName() == " Wien") {
-        //                $name = "Wien";
-        //            } else {
-        //                $name = $stat->getName();
-        //            }
-        //            array_push($erg_platz, $name);
-        //        }
+        $dql = "SELECT g FROM golfplatz g";
+
+        $query = $entityManager->createQuery($dql);
+        $query->setMaxResults(30);
+        $golfplatze = $query->getResult();
+        $erg_platz = array();
+
+        foreach ($golfplatze as $golfplatz) {
+            if ($golfplatz->getName() == " Wien") {
+                $name = "Wien";
+            } else {
+                $name = $golfplatz->getName();
+            }
+            array_push($erg_platz, $name);
+        }
+        echo "console.log(" . json_encode($erg_platz) . ");";
         //Golffeld
-        //        $dql = "SELECT g FROM golffeld g";
+        $dql = "SELECT g FROM golffeld g";
+
+        $query = $entityManager->createQuery($dql);
+        $query->setMaxResults(30);
+        $felder = $query->getResult();
+        $erg_felder = array();
+
+        foreach ($felder as $feld) {
+            $name = $feld->getName();
+            array_push($erg_felder, $name);
+        }
+        echo "console.log(" . json_encode($erg_felder) . ");"
+
+        //        // test
+        //        $dql = "SELECT f,p FROM golfplatz p INNER JOIN golffeld f ON f.id = p.fkGolfpltzId";
         //
         //        $query = $entityManager->createQuery($dql);
         //        $query->setMaxResults(30);
         //        $stats = $query->getResult();
         //        $erg_feld = array();
         //
+        //        /* @var golfplatz $stat */
+        //        /* @var golffeld $stat */
         //        foreach ($stats as $stat) {
-        //            $name = $stat->getName();
+        //            $name = $stat->getFkGolfpltzId();
         //            array_push($erg_feld, $name);
         //        }
-
-        // test
-        $dql = "SELECT f,p FROM golfplatz p INNER JOIN golffeld f ON f.id = p.fkGolfpltzId";
-
-        $query = $entityManager->createQuery($dql);
-        $query->setMaxResults(30);
-        $stats = $query->getResult();
-        $erg_feld = array();
-
-        /* @var golfplatz $stat */
-        /* @var golffeld $stat */
-        foreach ($stats as $stat) {
-            $name = $stat->getFkGolfpltzId();
-            array_push($erg_feld, $name);
-        }
-
-
-        ?>
-        //var plaetze = <?php //echo json_encode($erg_platz)?>//;
-        var felder = <?php echo json_encode($erg_feld)?>;
+        //
+        //
+        //        ?>
+        var plaetze = <?php echo json_encode($erg_platz)?>;
+        var felder = <?php echo json_encode($erg_felder)?>;
         //console.log(plaetze);
-        console.log(felder);
-        //autocomplete(document.getElementById("golfplatz_input"), plaetze);
-        //autocomplete(document.getElementById("golffeld_input"), felder);
+        // console.log(felder);
+        autocomplete(document.getElementById("golfplatz_input"), plaetze);
+        autocomplete(document.getElementById("golffeld_input"), felder);
     </script>
 </body>
 </html>

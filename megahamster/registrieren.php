@@ -15,6 +15,17 @@
 <?php
 
 require_once "./doctrine/orm/bootstrap.php";
+if (isset($_SESSION['user'])) {
+    ?>
+    <div class="angemeldet">
+        <h5 style="text-align: right">Angemeldet als: <u><?php echo $_SESSION['user'] ?></u></h5>
+    </div>
+    <script>
+        alert("you are already logged in as: <?php echo $_SESSION['user'] ?> ");
+    </script>
+    <meta http-equiv="refresh" content="0;url=http://chrisvenator.hd/Golf_Club_Arnold_Palmer/Remember/index.html"/>
+    <?php
+}
 if (isset($_POST['Submit'])) {
 
     $uName = $_POST['uname'];

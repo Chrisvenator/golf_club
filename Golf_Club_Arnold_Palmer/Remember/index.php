@@ -34,6 +34,11 @@
 </head>
 
 <body> <?php require_once "../../megahamster/doctrine/orm/bootstrap.php"; ?>
+
+<?php
+session_start();
+?>
+
 <div id="wrapper">
     <!-- start header -->
     <header>
@@ -51,17 +56,17 @@
 
                         <ul class="social-network">
                             <li><a href="https://www.facebook.com/" data-placement="bottom" title="Facebook"><i
-                                            class="icon-circled icon-bglight icon-facebook"></i></a></li>
+                                        class="icon-circled icon-bglight icon-facebook"></i></a></li>
                             <li><a href="https://twitter.com/" data-placement="bottom" title="Twitter"><i
-                                            class="icon-circled icon-bglight icon-twitter"></i></a></li>
+                                        class="icon-circled icon-bglight icon-twitter"></i></a></li>
                             <li><a href="https://at.linkedin.com/" data-placement="bottom" title="Linkedin"><i
-                                            class="icon-circled icon-linkedin icon-bglight"></i></a></li>
+                                        class="icon-circled icon-linkedin icon-bglight"></i></a></li>
                             <li><a href="https://www.pinterest.at/" data-placement="bottom" title="Pinterest"><i
-                                            class="icon-circled icon-pinterest  icon-bglight"></i></a></li>
+                                        class="icon-circled icon-pinterest  icon-bglight"></i></a></li>
                             <li>
                                 <a href="https://accounts.google.com/signin/v2/identifier?passive=1209600&continue=https%3A%2F%2Faboutme.google.com%2Fu%2F0%2F%3Freferer%3Dgplus&followup=https%3A%2F%2Faboutme.google.com%2Fu%2F0%2F%3Freferer%3Dgplus&flowName=GlifWebSignIn&flowEntry=ServiceLogin"
                                    data-placement="bottom" title="Google +"><i
-                                            class="icon-circled icon-google-plus icon-bglight"></i></a></li>
+                                        class="icon-circled icon-google-plus icon-bglight"></i></a></li>
                         </ul>
 
                     </div>
@@ -86,50 +91,57 @@
                                         <a href="index.html">Home</a>
                                     </li>
                                     <li class="dropdown">
-                                        <a href="#">Features <i class="icon-angle-down"></i></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="typography.html">Typography</a></li>
-                                            <li><a href="components.html">Components</a></li>
-                                            <li><a href="icons.html">Icons</a></li>
-                                            <li><a href="icon-variations.html">Icon variations</a></li>
-
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown">
                                         <a href="#">Pages <i class="icon-angle-down"></i></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="about.html">About us</a></li>
+                                            <li><a href="about.php">About us</a></li>
                                             <!--<li><a href="pricingbox.html">Pricing boxes</a></li>-->
-                                            <li><a href="404.html">404</a></li>
+                                            <li><a href="404.php">404</a></li>
                                         </ul>
                                     </li>
                                     <li class="dropdown">
                                         <a href="#">Top Scorer <i class="icon-angle-down"></i></a>
                                         <ul class="dropdown-menu">
                                             <li><a href="http://www.rorymcilroy.com/">Rory Mcilroy</a></li>
-                                            <li><a href="https://www.golfmagazin.de/profil/herren/jon-rahm/">Jon Rham</a></li>
-                                            <li><a href="https://www.pgatour.com/players/player.36689.brooks-koepka.html">Brooks Koepka</a></li>
+                                            <li><a href="https://www.golfmagazin.de/profil/herren/jon-rahm/">Jon
+                                                    Rham</a></li>
+                                            <li>
+                                                <a href="https://www.pgatour.com/players/player.36689.brooks-koepka.html">Brooks
+                                                    Koepka</a></li>
                                             <li><a href="https://www.justinthomasgolf.com/">Justin Thomas</a></li>
                                         </ul>
                                     </li>
-                                    <li class="dropdown">
-                                        <a href="#">Blog <i class="icon-angle-down"></i></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="blog-left-sidebar.html">Blog left sidebar</a></li>
-                                            <li><a href="blog-right-sidebar.html">Blog right sidebar</a></li>
-                                            <li><a href="post-left-sidebar.html">Post left sidebar</a></li>
-                                            <li><a href="post-right-sidebar.html">Post right sidebar</a></li>
-                                        </ul>
-                                    </li>
                                     <li>
-                                        <a href="contact.html">Contact </a>
+                                        <a href="#contact_us">Contact </a>
                                     </li>
                                     <li class="dropdown">
-                                        <a href="../../megahamster/UCP.php">Account<i class="icon-angle-down"></i></a>
+                                        <a href="../../megahamster/UCP.php">
+                                            <?php
+                                            if (isset($_SESSION['user'])) {
+                                                echo $_SESSION['user'];
+                                            } else {
+                                                echo "Account";
+                                            }
+                                            ?><i class="icon-angle-down"></i></a>
                                         <ul class="dropdown-menu">
                                             <li><a href="../../megahamster/einloggen.php">Login</a></li>
                                             <li><a href="../../megahamster/registrieren.php">Sign Up</a></li>
                                             <li><a href="../../megahamster/UCP.php">UCP</a></li>
+                                            <?php
+                                            if (isset($_SESSION['user'])) {
+                                                ?>
+                                                <form method="post">
+                                                    <input type="submit" value="Ausloggen" name="logout"/>
+                                                </form>
+                                                <?php
+                                            }
+                                            if (isset($_POST['logout'])) {
+                                                session_destroy();
+                                                ?>
+                                                <meta http-equiv="refresh"
+                                                      content="0;url=http://chrisvenator.hd/Golf_Club_Arnold_Palmer/Remember/index.html"/>
+                                                <?php
+                                            }
+                                            ?>
                                         </ul>
                                     </li>
                                 </ul>
@@ -441,7 +453,7 @@
     </section>
 
     <footer>
-        <div class="container">
+        <div class="container" id="contact_us">
             <div class="row">
                 <div class="span4">
                     <div class="widget">
@@ -464,12 +476,14 @@
                     <div class="widget">
                         <h5 class="widgetheading">Browse pages</h5>
                         <ul class="link-list">
-                            <li><a href="#">Our company</a></li>
-                            <li><a href="#">Terms and conditions</a></li>
-                            <li><a href="#">Privacy policy</a></li>
-                            <li><a href="#">Press release</a></li>
-                            <li><a href="#">What we have done</a></li>
-                            <li><a href="#">Our support forum</a></li>
+                            <li><a href="#">Main Site</a></li>
+                            <li><a href="../web/index.php">UCP</a></li>
+                            <li><a href="../../megahamster/insert/admin_insert/insert_golfplatz.php">create
+                                    golfplatz</a></li>
+                            <li><a href="../../megahamster/insert/admin_insert/insert_golffeld.php">create golffeld</a>
+                            </li>
+                            <li><a href="../../megahamster/insert/admin_insert/insert_spiel.php">create new game</a>
+                            </li>
                         </ul>
 
                     </div>

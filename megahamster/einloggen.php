@@ -13,7 +13,7 @@
 </head>
 <body class="content">
 <?php require_once "./doctrine/orm/bootstrap.php";
-
+session_start();
 if (isset($_POST['Submit'])) {
     $uName = $_POST['uname'];
     $pw = $_POST['password'];
@@ -41,20 +41,21 @@ if (isset($_POST['Submit'])) {
         echo "</div>";
     } else {
         ?>
-        <div class="angemeldet">
-            <h5 style="text-align: right">Angemeldet als: <u><?php echo $_SESSION['user'] ?></u></h5>
-        </div>
-        <meta http-equiv="refresh" content="0;url=http://chrisvenator.hd/Golf_Club_Arnold_Palmer/Remember/index.html"/>
+                <div class="angemeldet">
+                    <h5 style="text-align: right">Angemeldet als: <u><?php echo $_SESSION['user'] ?></u></h5>
+                </div>
+                <meta http-equiv="refresh" content="0;url=http://chrisvenator.hd/Golf_Club_Arnold_Palmer/Remember/index.html"/>
         <?php
     }
-}
-
-if (isset($_SESSION['user'])) {
+} else if (isset($_SESSION['user'])) {
     ?>
     <div class="angemeldet">
         <h5 style="text-align: right">Angemeldet als: <u><?php echo $_SESSION['user'] ?></u></h5>
     </div>
-    <meta http-equiv="refresh" content="0;url=http://chrisvenator.hd/Golf_Club_Arnold_Palmer/Remember/index.html"/>
+    <script>
+        alert("you are already logged in as: <?php echo $_SESSION['user'] ?> ");
+    </script>
+        <meta http-equiv="refresh" content="0;url=http://chrisvenator.hd/Golf_Club_Arnold_Palmer/Remember/index.html"/>
     <?php
 }
 ?>
@@ -90,11 +91,11 @@ if (isset($_SESSION['user'])) {
             <a href="https://accounts.google.com/signin/v2/identifier?passive=1209600&continue=https%3A%2F%2Faboutme.google.com%2Fu%2F0%2F%3Freferer%3Dgplus&followup=https%3A%2F%2Faboutme.google.com%2Fu%2F0%2F%3Freferer%3Dgplus&flowName=GlifWebSignIn&flowEntry=ServiceLogin"><img
                         src="../Golf_Club_Arnold_Palmer/images/google.png" alt="google">Google</a>
         </div>
-        <div class="copyright-box">
-            <div class="copyright">
-                &copy; 2020 All right reserved. Designed by <strong>Christopher Scherling.</strong></a>
-            </div>
-        </div>
+<!--        <div class="copyright-box">-->
+<!--            <div class="copyright">-->
+<!--                &copy; 2020 All right reserved. Designed by <strong>Christopher Scherling.</strong></a>-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
 </div>
 </body>

@@ -8,6 +8,7 @@ $query = $entityManager->createQuery($dql);
 $query->setMaxResults(30);
 $stats = $query->getResult();
 
+/* @var stats $stat */
 foreach ($stats as $stat) {
     echo "ID: " . $stat->getId();
     echo "; User ID:" . $stat->getFkUserID();

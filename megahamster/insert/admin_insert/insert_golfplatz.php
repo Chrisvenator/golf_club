@@ -49,13 +49,13 @@
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Name is required">
-                    <span class="label-input100">Addresse</span>
+                    <span class="label-input100">Address</span>
                     <input class="input100" type="text" name="addresse" placeholder="Addresse...">
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Name is required">
-                    <span class="label-input100">Eigentuemer</span>
+                    <span class="label-input100">Owner</span>
                     <input class="input100" type="text" name="eigentuemer" placeholder="Eigentuemer...">
                     <span class="focus-input100"></span>
                 </div>
