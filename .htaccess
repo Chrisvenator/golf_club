@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteRule ^about$ about.html [NC]
+
+RewriteRule ^([a-zA-z]+)/([0-9]+) results.php?page=$1&pageid=$2

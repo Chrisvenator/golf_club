@@ -10,5 +10,7 @@
     </style>
 </head>
 <body>
+<meta http-equiv="refresh" content="0;url=http://localhost/megahamster/sessions/ausgeben.php"/>
+Weiterleiten...
 </body>
 </html>
