@@ -1,0 +1,13 @@
+RewriteEngine on
+
+RewriteRule ^index$ index.php [NC]
+RewriteRule home http://chrisvenator.hd/Golf_Club_Arnold_Palmer/Remember/index.php [NC]
+RewriteRule login http://chrisvenator.hd/megahamster/einloggen.php [NC]
+RewriteRule registrieren http://chrisvenator.hd/megahamster/registrieren.php [NC]
+RewriteRule UCP http://chrisvenator.hd/Golf_Club_Arnold_Palmer/web/index.php [NC]
+
+RewriteRule 404 http://chrisvenator.hd/Golf_Club_Arnold_Palmer/Remember/404.php [NC]
+ErrorDocument 404 http://chrisvenator.hd/Golf_Club_Arnold_Palmer/Remember/404.php
+ErrorDocument 500 http://chrisvenator.hd/Golf_Club_Arnold_Palmer/Remember/404.php
+
+#RewriteRule ^([a-zA-z]+)/([0-9]+) results.php?page=$1&pageid=$2
